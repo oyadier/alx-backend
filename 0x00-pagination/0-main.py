@@ -12,7 +12,9 @@ print(res)
 res = index_range(page=3, page_size=15)
 print(type(res))
 print(res)
-
-res = index_range(page=2, page_size=8)
-print(type(res))
-print(res)
+tu = []
+i = res[0]
+while (i < res[-1]):
+    tu.append(i)
+    i += 1
+print(tu)
