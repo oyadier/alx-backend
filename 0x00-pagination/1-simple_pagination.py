@@ -49,7 +49,6 @@ class Server:
         sets = []
 
         for i in index:
-            print(f"Index: {i}")
             if i > len(self.dataset()):
                 return []
             sets.append(self.dataset()[i])
