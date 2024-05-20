@@ -6,8 +6,8 @@ from typing import Tuple
 def index_range(page: int, page_size: int) -> Tuple:
 
     """
-    A funtion to compute pagenation based of the args
-        Arg:
+    index_range: A funtion to compute pagenation based of the args
+        Args:
             page (int) page number
             page_size (Int) number of rows
     """
