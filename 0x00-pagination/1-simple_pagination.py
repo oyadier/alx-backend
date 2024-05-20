@@ -15,11 +15,11 @@ def index_range(page: int, page_size: int) -> Tuple:
             page_size (Int) number of rows
     """
     if page == 1:
-        start_index = 0;
+        start_index = 0
     start_index = (page - 1) * page_size + 1
     end = start_index + page_size - 1
-    
-    return (start_index -1, end)
+
+    return (start_index - 1, end)
 
 
 class Server:
@@ -48,8 +48,6 @@ class Server:
         index = index_range(page, page_size)
         sets = []
 
-        if page < 0 or len(index) > len(self.dataset()):
-            return []
         for i in index:
             print(f"Index: {i}")
             if i > len(self.dataset()):
