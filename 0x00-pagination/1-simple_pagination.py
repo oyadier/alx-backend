@@ -46,8 +46,8 @@ class Server:
             Args:
                 page (int): page number
                 page_size (int): number of items pair page
-            Return:
-                dict of items
+        Return:
+            dict of items
         """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
