@@ -58,12 +58,13 @@ class Server:
     def get_hyper(self, page: int,
                   page_size: int) -> Dict[str, Union[int, List[List], None]]:
         """
-        Args:
-            page (int): page number
-            page_size (int): number of items per page
-        Returns:
-            A dictionary of the following:
-                * page_size, page, data, next_page, prev_page, total_pages
+        Compute hypermdedia pagination
+            Args:
+                page (int): page number
+                page_size (int): number of items per page
+            Returns:
+                A dictionary:
+                    * page_size, page, data, next_page, prev_page, total_pages
         """
         data = self.get_page(page, page_size)
         totalRows = len(self.dataset())
