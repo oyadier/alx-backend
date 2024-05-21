@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
+"""Compute pagnation"""
 import csv
 import math
 from typing import List
-
 from typing import Tuple
-"""Compute pagnation"""
 
 
 def index_range(page: int, page_size: int) -> Tuple:
@@ -15,10 +14,9 @@ def index_range(page: int, page_size: int) -> Tuple:
             page_size (Int) number of rows
     """
 
-    start_index = (page - 1) * page_size + 1
-    end = start_index + page_size - 1
-    start_index -= 1
-    return (start_index, end)
+    start_next_index = page * page_size
+    start_index = start_next_index - page_size
+    return (start_index, start_next_index)
 
 
 class Server:
