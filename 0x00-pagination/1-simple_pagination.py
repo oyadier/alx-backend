@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """Compute pagnation"""
 import csv
-import math
 from typing import List
 from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple:
 
-    """A funtion to compute pagenation based of the args
+    """
+    A funtion to compute pagenation based of the args
         Arg:
             page (int) page number
             page_size (Int) number of rows
+    Return:
+        tuple of range of index
     """
 
     start_next_index = page * page_size
@@ -39,6 +41,14 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        Get the data from data set based on range of tuple
+            Args:
+                page (int): page number
+                page_size (int): number of items pair page
+            Return:
+                dict of items
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
