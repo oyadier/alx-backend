@@ -12,8 +12,9 @@ class BasicCache(BaseCaching):
             Args:
                 key(int): key of the block item
                 value(int): item of the block
-            Return:
-                """
+        Return:
+            Nothing
+        """
         if key is None or item is None:
             pass
         self.cache_data[key] = item
@@ -23,8 +24,8 @@ class BasicCache(BaseCaching):
         Get the value using key
             Args:
                 key(int): the key to retrieve the item
-            Return:
-                item(any): item of a key
+        Return:
+            item(any): item of a key
         """
         if key in self.cache_data:
             return self.cache_data[key]
