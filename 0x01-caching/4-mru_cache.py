@@ -43,6 +43,7 @@ class MRUCache(BaseCaching):
                         key (_type_): _description_
         """
         if key is not None and key in self.cache_data.keys():
-            self.used_keys.append(self.used_keys.pop(self.used_keys.index(key)))
+            self.used_keys.append(
+                self.used_keys.pop(self.used_keys.index(key)))
             return self.cache_data.get(key)
         return None
