@@ -7,6 +7,7 @@ class FIFOCache(BaseCaching):
     """Implement FIFO caching"""
 
     def __init__(self):
+        """Initialice the obj"""
         super().__init__()
         self.cache_data
 
