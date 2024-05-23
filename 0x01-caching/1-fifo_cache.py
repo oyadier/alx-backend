@@ -12,30 +12,26 @@ class FIFOCache(BaseCaching):
         self.cache_data
 
     def put(self, key, item):
-        """
-        Add item to FIFO block
+        """Add item to FIFO block
             Args:
                 key(integer): key of the item block
                 item(str): item of the block
-        Retrun:
-            Nothing
         """
         if key is None or item is None:
             pass
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
+                and key not in self.cache_data.keys():
             key, val = next(iter(self.cache_data.items()))
             print("DISCARD: {}".format(key))
             del self.cache_data[key]
         self.cache_data[key] = item
 
     def get(self, key):
-        """
-        Get the value given the key
+        """Get the value given the key
             Args:
                 key(integer): Value fo the item
-        Retrun:
-            item(intefer): item linked to key
+            Retrun:
+                item(intefer): item linked to key
         """
         if key in self.cache_data:
             return self.cache_data[key]
