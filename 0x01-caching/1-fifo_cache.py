@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """FiFO Caching"""
+
+
 from base_caching import BaseCaching
 
 
@@ -13,7 +15,7 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """Add item to FIFO block
-            Args:
+        Args:
                 key(integer): key of the item block
                 item(str): item of the block
         """
@@ -28,9 +30,9 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """Get the value given the key
-            Args:
+        Args:
                 key(integer): Value fo the item
-            Retrun:
+        Retrun:
                 item(intefer): item linked to key
         """
         if key in self.cache_data:
