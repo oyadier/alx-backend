@@ -35,7 +35,6 @@ class FIFOCache(BaseCaching):
         Retrun:
                 item(intefer): item linked to key
         """
-        if key in self.cache_data:
-            return self.cache_data[key]
-        else:
+        if key is None or key not in self.cache_data.keys():
             return None
+        return self.cache_data.get(key)
