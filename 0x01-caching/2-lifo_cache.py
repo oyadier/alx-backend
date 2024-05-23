@@ -17,28 +17,35 @@ return None.
 """
 
 
-BaseCaching = __import__("base_caching").BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """Implementing FIFOCaching algorithms"""
+    """_summary_
+    """
 
     def __init__(self):
-        """subclass init"""
+        """_summary_
+        """
         super().__init__()
 
     def put(self, key, item):
-        """Add item to the caching block
-            Args:
-                key(int): key to the item
-                item(int): item of caching block
-        """
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
-                and key not in self.cache_data.keys():
-            keys, value = self.cache_data.popitem()
-            print("DISCARD {}".format(keys))
+        """_summary_
 
-        self.cache_data[key] = item
+        Args:
+                        key (_type_): _description_
+                        item (_type_): _description_
+        """
+        if key is None or item is None:
+            pass
+        else:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
+                    and key not in self.cache_data.keys():
+                # delete the last item in the dictionary
+                last_key, last_value = self.cache_data.popitem()
+                print("DISCARD: {}". format(last_key))
+
+            self.cache_data[key] = item
 
     def get(self, key):
         """return the value in self.cache_data linked to key
