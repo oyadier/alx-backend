@@ -32,9 +32,9 @@ class LRUCache(BaseCaching):
                 self.usedKeys.append(
                     self.usedKeys.pop(self.usedKeys.index(key)))
             if len(self.usedKeys) > BaseCaching.MAX_ITEMS:
-                discard = self.usedKeys.pop(0)
-                del self.cache_data[discard]
-                print('DISCARD: {:s}'.format(discard))
+                lessUsed = self.usedKeys.pop(0)
+                del self.cache_data[lessUsed]
+                print('DISCARD: {:s}'.format(lessUsed))
 
     def get(self, key):
         """return the value in self.cache_data linked to key
