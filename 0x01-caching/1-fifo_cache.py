@@ -7,7 +7,7 @@ class FIFOCache(BaseCaching):
     """Implement FIFO caching"""
 
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         self.cache_data
 
     def put(self, key, item):
@@ -22,10 +22,10 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             pass
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            del self.cache_data[0]
-            for key, vl in self.cache_data.items():
-                if vl == self.cache_data[0]:
-                    print("DISCARD: {}".format(key))
+
+            key, val = next(iter(self.cache_data.items()))
+            print("DISCARD: {}".format(key))
+            del self.cache_data[key]
         self.cache_data[key] = item
 
     def get(self, key):
@@ -37,6 +37,6 @@ class FIFOCache(BaseCaching):
             item(intefer): item linked to key
         """
         if key in self.cache_data:
-            return self.cache_data.get(key)
+            return self.cache_data[key]
         else:
             return None
