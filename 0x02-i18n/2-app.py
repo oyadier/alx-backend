@@ -7,8 +7,8 @@ import babel
 from flask import request
 
 
-@babel.localselector
-def getlocale():
+@babel.localeselector
+def get_locale():
     '''
         Getting local of a country
     '''
