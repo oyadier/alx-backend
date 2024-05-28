@@ -2,9 +2,9 @@
 '''
     Get local decorator
 '''
+
 import babel
 from flask import request
-from flask_babel import Babel
 
 
 @babel.localselector
