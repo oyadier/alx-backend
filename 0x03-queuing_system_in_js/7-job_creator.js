@@ -47,16 +47,17 @@ const jobs = [
         message: 'This is the code 4321 to verify your account'
     }
 ];
+var push_notification = 'undefined';
+jobs.forEach(element => {
+    push_notification = queue.create('push_notification_code_2', element).save()
 
-for (let i = 0; i < jobs.length; i++) {
-    const push_notification = queue.create('push_notification_code_2', jobs[i])
-    push_notification.on('enqueue', () =>{
-        console.log(`Notification hob created: ${push_notification}`)
+    push_notification.on('enqueue', () => {
+        console.log(`Notification job created: ${push_notification.id}`)
     }).on('complete', () => {
         console.log(`Notification job ${push_notification.id} completed`)
     }).on('failed', (err) => {
         console.log(`Notification job JOB_ID failed: ${err}`)
-    }).on('progress', (done) =>{
+    }).on('progress', (done) => {
         console.log(`otification job ${push_notification.id} ${done}% complete`)
     })
-}
+});
