@@ -2,11 +2,11 @@ var kue = require('kue');
 var push_notification_code = kue.createQueue();
 
 var jobData = {
-    phoneNumber: String,
-    message: String,
+    phoneNumber: '04343334433',
+    message: 'This is the code to verify your account',
 }
 
-push_notification_code.create('push_notification', jobData)
+push_notification_code.create('push notification', jobData)
     .save((err) => {
         if (!err) console.log(`Notification job created: ${push_notification_code.id}`);
     });
